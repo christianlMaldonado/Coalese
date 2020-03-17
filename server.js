@@ -1,30 +1,43 @@
-// Dependencies
 const express = require("express");
+const db = require("./models");
+const passport = require("passport");
+const passportSetup = require("./passport/passport-setup");
+const cookieSession = require("cookie-session");
+const authRoutes = require("./routes/auth");
+const homeRoutes = require("./routes/home");
 
-// Set up our express app
+// initialize express app
 const app = express();
 const PORT = process.env.PORT || 8888;
 
-// Required models for syncing the database
-const db = require("./models");
+// express will look for ejs templates
+app.set("view engine", "ejs");
 
-// middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// middleware for using req.body from post forms
+app.use(express.urlencoded({ extended: false }));
 
-// Sets a static directory to add CSS and JS files to HTML doc
-app.use(express.static("public"));
+// sets information for cookie for a day
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    // save cookie keys in process.env
+    keys: ["bacon"],
+  })
+);
 
-// Routes
-require("./routes")(app);
-require("./routes")(app);
-/* Not the full route we will have to build it once we figure out html */
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Syncs sequelize models and starts Express app
-/* force:false will allow data in the database to be persistant and not drop
- * database each time app is restarted */
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on http://localhost:" + PORT);
+app.use("/auth", authRoutes);
+app.use("/home", homeRoutes);
+
+app.get("/", (req, res) => {
+  res.render("login");
+});
+
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`server listening on http://localhost:${PORT}`);
   });
 });
