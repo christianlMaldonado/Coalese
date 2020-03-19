@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING,
   });
 
+  User.prototype.validPassword = password => {
+    return bcrypt.compareSync(password, this.password);
+  };
+
   User.beforeCreate(async (user, options) => {
     let salt = bcrypt.genSaltSync(10);
     let hash = await bcrypt.hashSync(user.password, salt);
