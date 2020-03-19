@@ -4,7 +4,7 @@
 const yelp = require('yelp-fusion');
 
 // Place holder for Yelp Fusion's API Key
-const apiKey ="4_HB_VGhPn1LU1NFkdIxl3fBex0MDJ62qdim-Ky4QPRFch2jqOh4GUgJsBV08gi8scp3yjUXiMtCgKRx_hX8R-ARDZjoAfevr-Ob_qWbgVV7HT_uQUGtPGOMXiptXnYx";
+const apiKey ="";
 
 const searchRequest = {
   term:'Four Barrel Coffee',
