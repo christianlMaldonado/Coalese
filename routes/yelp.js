@@ -1,29 +1,29 @@
-
 //'use strict';
-
-const yelp = require('yelp-fusion');
+require("dotenv").config();
+const yelp = require("yelp-fusion");
 
 // Place holder for Yelp Fusion's API Key
-const apiKey ="";
+const apiKey = process.env.YELPKEY;
 
 const searchRequest = {
-  term:'Four Barrel Coffee',
-  location: 'san francisco, ca',
-  radius: 20000
+  term: "Four Barrel Coffee",
+  location: "san francisco, ca",
+  radius: 20000,
 };
 
 const client = yelp.client(apiKey);
 
-client.search(searchRequest).then(response => {
-  const firstResult = response.jsonBody.businesses;
-  console.log(firstResult);
-  const prettyJson = JSON.stringify(firstResult, null, 4);
-  console.log(prettyJson);
-}).catch(e => {
-  console.log(e);
-});
-
-
+client
+  .search(searchRequest)
+  .then(response => {
+    const firstResult = response.jsonBody.businesses;
+    console.log(firstResult);
+    const prettyJson = JSON.stringify(firstResult, null, 4);
+    console.log(prettyJson);
+  })
+  .catch(e => {
+    console.log(e);
+  });
 
 // const axios = require('axios').default;
 // axios.get("${https://arcane-woodland-29279.herokuapp.com}","https://api.yelp.com/v3/businesses/{id}", {
@@ -43,5 +43,3 @@ client.search(searchRequest).then(response => {
 //     .catch((err) => {
 //         console.log ('error')
 //     })
-
-

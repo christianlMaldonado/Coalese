@@ -75,8 +75,7 @@ dist
 # TernJS port file
 .tern-port
 Collapse
-
-
+package-lock.json
 
 
 

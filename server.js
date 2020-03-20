@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const db = require("./models");
 const passport = require("passport");
@@ -21,7 +22,7 @@ app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     // save cookie keys in process.env
-    keys: ["bacon"],
+    keys: [process.env.COOKIE],
   })
 );
 
