@@ -3,10 +3,10 @@ const fs = require("fs");
 
 module.exports = {
   development: {
-    username: process.env.USERNAME,
+    username: "root",
     password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    host: process.env.HOST,
+    database: "arcane_woodland",
+    host: "localhost",
     port: 3306,
     dialect: "mysql",
     dialectOptions: {
