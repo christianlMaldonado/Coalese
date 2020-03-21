@@ -1,69 +1,155 @@
-/* home.ejs styles */
+/*universal*/
+body {
+  background-color: lightgray !important;
+}
 
+footer {
+  background-color: rgb(17, 17, 17);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: lightgrey;
+  font-size: 10px;
+}
+
+.footerLink {
+  text-decoration: none;
+  color: white;
+}
+
+.footerLink:hover {
+  color: lightskyblue;
+}
+
+.separate {
+  margin-bottom: 2%;
+}
+
+form-control:valid {
+  background-color: white !important;
+}
+
+.pageLink {
+  color: rgb(0, 111, 145);
+}
+
+.pageLink:hover {
+  color: rgb(0, 151, 197);
+}
+
+/* home.ejs styles */
 #logout {
-    position: absolute;
-    bottom: 5%;
-  }
-  
-  #logout:hover {
-    text-decoration: none;
-  }
-  
-  .home {
-    background-image: url("../images/depth.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 0px !important;
-  }
-  
-  /*login.ejs styles */
-  
-  .loginJumbo {
-    background-image: url("../images/coffee.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 2%;
-    border-radius: 0px !important;
-  }
-  
-  .navImg {
-    width: 140px;
-  }
-  
-  .form-control:focus {
-    border-color: rgb(59, 0, 0) !important;
-    box-shadow: inset 0 1px 1px rgba(92, 1, 1, 0.075),
-      0 0 8px rgba(168, 0, 0, 0.6) !important;
-  }
-  
-  /*register.ejs styles*/
-  
+  position: absolute;
+  bottom: 5%;
+}
+
+#logout:hover {
+  text-decoration: none;
+}
+
+.home {
+  background-image: url("../images/depth.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0px !important;
+}
+
+/*login.ejs styles */
+
+.loginJumbo {
+  background-image: url("../images/coffee.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 2%;
+  border-radius: 0px !important;
+}
+
+.navImg {
+  width: 140px;
+}
+
+.form-control:focus {
+  border-color: rgb(0, 0, 0) !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(65, 65, 65, 0.6) !important;
+}
+
+.loginContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 100px;
+}
+
+/*register.ejs styles*/
+
+.imgReg {
+  width: 40%;
+  float: left;
+  height: 100vh;
+}
+
+.regForm {
+  width: 40%;
+  float: left;
+  margin-left: 10%;
+  margin-top: 3%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.regHead {
+  text-align: center;
+  padding-top: 5%;
+  font-size: 25px;
+}
+
+/*media screen 550px*/
+@media screen and (max-width: 550px) {
   .imgReg {
-    width: 40%;
-    float: left;
+    float: none;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    top: -60px;
+  }
+
+  .regForm {
+    width: 80%;
+    margin-bottom: 100px;
+  }
+
+  .regHead {
+    padding-top: 0px;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1025px) {
+  .registerBody {
+    background-image: url("../images/forkReg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
   }
-  
+
+  .imgReg {
+    visibility: hidden;
+    float: none;
+    width: 0px;
+    height: 0px;
+  }
+
   .regForm {
-    width: 40%;
-    float: left;
-    margin-left: 10%;
-    margin-top: 5%;
+    width: 80%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
   }
-  
+
   .regHead {
-    text-align: center;
-    padding-top: 5%;
-    font-size: 45px;
+    color: white;
   }
-  
-  /*universal*/
-  
-  .separate {
-    margin-bottom: 2%;
-  }
-  
-  form-control:valid {
-    background-color: white !important;
-  }
-  
+}
