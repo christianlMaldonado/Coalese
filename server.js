@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 8888;
 
 // express will look for ejs templates
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 // middleware for using req.body from post forms
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +23,7 @@ app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     // save cookie keys in process.env
-    keys: [process.env.COOKIE],
+    keys: [process.env.COOKIE]
   })
 );
 

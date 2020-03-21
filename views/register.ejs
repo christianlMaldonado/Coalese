@@ -1,17 +1,59 @@
-<h1>Register</h1>
-<form action="/auth/register" method="POST">
-  <div>
-    <lablel for="name">Name</lablel>
-    <input type="text" id="name" name="username" required />
-  </div>
-  <div>
-    <lablel for="email">Email</lablel>
-    <input type="email" id="email" name="email" required />
-  </div>
-  <div>
-    <lablel for="password">Password</lablel>
-    <input type="password" id="password" name="password" required />
-  </div>
-  <button type="submit">Register</button>
-</form>
-<a href="/">Login</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <img class="imgReg" src="/images/fork.jpg" />
+
+    <p class="regHead">Register</p>
+
+      <form class="regForm" action="/auth/register" method="POST">
+        <div class="separate">
+          <lablel for="name">Name: </lablel>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="username"
+            required
+          />
+        </div>
+        <div class="separate">
+          <lablel for="email">E-Mail: </lablel>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="separate">
+          <lablel for="password">Password: </lablel>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div></br>
+        <div class="text-center">
+        <button type="submit">Register</button><br>
+        <a href="/">Login</a>
+        </div>
+      </form>
+      
+
+  </body>
+</html>
