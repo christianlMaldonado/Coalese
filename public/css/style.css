@@ -1,0 +1,69 @@
+/* home.ejs styles */
+
+#logout {
+    position: absolute;
+    bottom: 5%;
+  }
+  
+  #logout:hover {
+    text-decoration: none;
+  }
+  
+  .home {
+    background-image: url("../images/depth.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px !important;
+  }
+  
+  /*login.ejs styles */
+  
+  .loginJumbo {
+    background-image: url("../images/coffee.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 2%;
+    border-radius: 0px !important;
+  }
+  
+  .navImg {
+    width: 140px;
+  }
+  
+  .form-control:focus {
+    border-color: rgb(59, 0, 0) !important;
+    box-shadow: inset 0 1px 1px rgba(92, 1, 1, 0.075),
+      0 0 8px rgba(168, 0, 0, 0.6) !important;
+  }
+  
+  /*register.ejs styles*/
+  
+  .imgReg {
+    width: 40%;
+    float: left;
+    height: 100vh;
+  }
+  
+  .regForm {
+    width: 40%;
+    float: left;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+  
+  .regHead {
+    text-align: center;
+    padding-top: 5%;
+    font-size: 45px;
+  }
+  
+  /*universal*/
+  
+  .separate {
+    margin-bottom: 2%;
+  }
+  
+  form-control:valid {
+    background-color: white !important;
+  }
+  

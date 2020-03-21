@@ -2,19 +2,31 @@
 <html>
   <head>
     <title>Home</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
-    <h1>Welcome <%= user.dataValues.username %></h1>
-
-    <a href="/auth/logout">Logout</a>
-
-    <form action="/yelp" method="post">
-      <div>
-        <label for="search">Search Area</label>
-        <input type="text" name="search" id="search" />
-      </div>
-    </form>
+    <div class="jumbotron text-center home">
+      <img class="navImg" src="/images/white_logo_transparent_background.png" />
+    </div>
+    <div class="text-center">
+      <h3>Welcome, <%= user.dataValues.username %></h3>
+    </br>
+      <form action="/yelp" method="post">
+        <div>
+          <label for="search">Find Restaurants Near You: </label>
+          <input type="text" name="search" id="search" />
+        </div>
+      </form>
+      <a href="/auth/logout" id="logout">Logout</a>
+    </div>
   </body>
 </html>
