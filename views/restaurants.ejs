@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link
@@ -20,14 +20,7 @@
     </div>
     <div class="text-center">
       <h3>Welcome, <%= user.dataValues.username %></h3>
-    </br>
-      <form action="/yelp" method="post">
-        <div>
-          <label for="search">Find Restaurants Near You: </label>
-          <input type="text" name="search" id="search" />
-        </div>
-        <button type="submit">search</button>
-      </form>
+
       <a href="/auth/logout" id="logout">Logout</a>
     </div>
   </body>
