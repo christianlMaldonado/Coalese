@@ -19,18 +19,13 @@
       <img class="navImg" src="/images/white_logo_transparent_background.png" />
     </div>
     <div class="text-center">
-      <h3>Welcome, <%= user.dataValues.username %></h3>
+      <h3>Welcome, <%= user %></h3>
     </br>
-      <form action="/home" method="post">
+      <form action="/yelp" method="post">
         <div>
           <label for="search">Find Restaurants Near You: </label>
           <input type="text" name="search" id="search" />
         </div>
-<<<<<<< HEAD
-        <button type="submit">search</button>
-=======
-        <button type="submit"> search</button>
->>>>>>> 42bc08c7a0ca327fe5b2de0a7da744ec0b216e47
       </form>
       <a href="/auth/logout" id="logout">Logout</a>
     </div>
