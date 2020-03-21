@@ -7,7 +7,6 @@ const cookieSession = require("cookie-session");
 const authRoutes = require("./routes/auth");
 const homeRoutes = require("./routes/home");
 const restRoutes = require("./routes/restaurant");
-
 // initialize express app
 const app = express();
 const PORT = process.env.PORT || 8888;
