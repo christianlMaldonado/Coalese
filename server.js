@@ -6,6 +6,7 @@ const passportSetup = require("./passport/passport-setup");
 const cookieSession = require("cookie-session");
 const authRoutes = require("./routes/auth");
 const homeRoutes = require("./routes/home");
+const restRoutes = require("./routes/restaurant");
 
 // initialize express app
 const app = express();
@@ -23,7 +24,7 @@ app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     // save cookie keys in process.env
-    keys: [process.env.COOKIE]
+    keys: [process.env.COOKIE],
   })
 );
 
@@ -33,6 +34,7 @@ app.use(passport.session());
 
 app.use("/auth", authRoutes);
 app.use("/home", homeRoutes);
+app.use("/restaurant", restRoutes);
 
 app.get("/", (req, res) => {
   res.render("login");
