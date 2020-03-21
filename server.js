@@ -6,7 +6,7 @@ const passportSetup = require("./passport/passport-setup");
 const cookieSession = require("cookie-session");
 const authRoutes = require("./routes/auth");
 const homeRoutes = require("./routes/home");
-
+const restRoutes = require("./routes/restaurant");
 // initialize express app
 const app = express();
 const PORT = process.env.PORT || 8888;
@@ -33,6 +33,7 @@ app.use(passport.session());
 
 app.use("/auth", authRoutes);
 app.use("/home", homeRoutes);
+app.use("/restaurant", restRoutes);
 
 app.get("/", (req, res) => {
   res.render("login");
