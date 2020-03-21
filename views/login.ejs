@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -16,7 +17,7 @@
     <div class="jumbotron loginJumbo text-center">
       <img class="navImg" src="/images/white_logo_transparent_background.png" />
     </div>
-    <div class="container">
+    <div class="container loginContainer">
       <form action="/auth/" method="POST">
         <div class="separate">
           <lablel for="name">Name: </lablel>
@@ -51,9 +52,16 @@
         <br />
         <div class="text-center">
           <button type="submit">Login</button><br />
-          <a href="/auth/register">Register</a>
+          <a class="pageLink" href="/auth/register">Register</a>
         </div>
       </form>
     </div>
+
+    <footer>
+      <div class="container text-center">
+        <a class="footerLink" href="#">About Us</a> -
+        <a class="footerLink" href="/auth/register">Register</a> - &copy; 2020
+      </div>
+    </footer>
   </body>
 </html>
