@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
   .search(searchRequest)
   .then(response => {
     const result = response.jsonBody.businesses; 
-    res.render("restaurant", result)
+    res.render("restaurant",{restaurants: result} )
     //const prettyJson = JSON.stringify(firstResult, null, 4);
     console.log(result);
   })
