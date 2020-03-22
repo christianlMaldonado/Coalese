@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Likes = sequelize.define("Like", {
+  const Like = sequelize.define("Like", {
     restaurant_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
   });
-  Likes.associate = function(models) {
-    Likes.belongsTo(models.User, {
+  Like.associate = function(models) {
+    Like.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
       },
     });
   };
-  return Likes;
+  return Like;
 };

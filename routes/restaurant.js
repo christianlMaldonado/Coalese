@@ -1,7 +1,13 @@
-//'use strict';
 require("dotenv").config();
 const router = require("express").Router();
+const yelp = require("yelp-fusion");
 
+// yelp search variables
+const apiKey = process.env.YELPKEY;
+const client = yelp.client(apiKey);
+let firstResult;
+
+// check to make sure user is logged in
 const authCheck = (req, res, next) => {
   if (!req.user) {
     // if user is not logged in
@@ -11,34 +17,31 @@ const authCheck = (req, res, next) => {
     next();
   }
 };
-// Place holder for Yelp Fusion's API Key
-const yelp = require("yelp-fusion");
-const apiKey = process.env.YELPKEY;
 
-const searchRequest = {
-  term: "Four Barrel Coffee",
-  location: "san francisco, ca",
-  radius: 20000,
-};
-
-const client = yelp.client(apiKey);
-router.post("/", (req, res) => {
-  console.log(req.body);
-});
+// restaurants page get request
 router.get("/", authCheck, (req, res) => {
-  res.render("restuarants", { user: "it worked" });
+  const searchRequest = {
+    term: "restaurants",
+    location: firstResult,
+    radius: 20000,
+    limit: 10,
+  };
+
+  client
+    .search(searchRequest)
+    .then(response => {
+      const result = response.jsonBody.businesses;
+      console.log(JSON.stringify(result, null, 2));
+      res.render("restaurant", { restaurants: result, user: req.user });
+    })
+    .catch(e => {
+      console.log(e);
+    });
 });
 
-client
-  .search(searchRequest)
-  .then(response => {
-    const firstResult = response.jsonBody.businesses;
-    console.log(firstResult);
-    const prettyJson = JSON.stringify(firstResult, null, 4);
-    console.log(prettyJson);
-  })
-  .catch(e => {
-    console.log(e);
-  });
+router.post("/", (req, res) => {
+  firstResult = req.body.search;
+  res.redirect("/restaurant");
+});
 
 module.exports = router;
