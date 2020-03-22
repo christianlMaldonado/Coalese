@@ -24,7 +24,7 @@ router.get("/", authCheck, (req, res) => {
     term: "restaurants",
     location: firstResult,
     radius: 20000,
-    limit: 10,
+    limit: 10
   };
 
   client
