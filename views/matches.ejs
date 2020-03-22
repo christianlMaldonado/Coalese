@@ -34,8 +34,8 @@
       <h4>click a user to see your matches</h4>
       <br />
       <div>
-        <% users.forEach(function(element){ %> <%- include("partials/usernames", {users:element}) %>
-        <% }); %>
+        <% users.forEach(function(element){ %> <%- include("partials/users", {users:element}) %> <%
+        }); %>
       </div>
       <a href="/auth/logout" id="logout">Logout</a>
     </div>
