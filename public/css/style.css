@@ -1,6 +1,7 @@
 /*universal*/
 body {
   background-color: lightgray !important;
+  font-family: "Allerta", sans-serif;
 }
 
 footer {
@@ -38,6 +39,12 @@ form-control:valid {
   color: rgb(0, 151, 197);
 }
 
+.pageHeader {
+  font-family: "Allerta", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 /* home.ejs styles */
 #logout {
   position: fixed;
@@ -53,6 +60,10 @@ form-control:valid {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 0px !important;
+}
+
+.search {
+  font-family: "Allerta", sans-serif;
 }
 
 /*login.ejs styles */
