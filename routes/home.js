@@ -20,8 +20,7 @@ router.get("/matches", authCheck, (req, res) => {
   db.User.findAll({}).then(users => {
     let user = [];
     users.forEach(element => {
-      // console.log("user info ====>" + JSON.stringify(element.dataValues.username, null, 4));
-      user.push(element.dataValues.username);
+      user.push(element.dataValues);
     });
     res.render("matches", { users: user, user: req.user });
   });
@@ -29,8 +28,16 @@ router.get("/matches", authCheck, (req, res) => {
 
 router.post("/matches", (req, res) => {
   console.log(req.body);
-  // db.Like
-  res.sendStatus(200);
+  db.Like.findAll({}).then(likes => {
+    let match = [];
+    let namesOfRestaurants = [];
+    for (let i = 0; i < likes.length; i++) {
+      const element = likes[i].dataValues.restaurant_name;
+      match.push(element);
+    }
+    console.log(match);
+    res.sendStatus(200);
+  });
 });
 
 module.exports = router;
