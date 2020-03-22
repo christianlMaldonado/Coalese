@@ -20,13 +20,13 @@
       <img class="navImg" src="/images/white_logo_transparent_background.png" />
     </div>
     <div class="text-center">
-      <h3>Welcome, <%= user.dataValues.username %></h3>
+      <p class="pageHeader">Welcome, <%= user.dataValues.username %></p>
     </br>
       <form action="/restaurant" method="post">
-        <span>
+        <span class="search">
           <label for="search">Find Restaurants Near You: </label>
           <input type="text" name="search" id="search" />
-        <button type="submit"> search</button>
+        <button type="submit"><i class="fa fa-search"></i></button>
         </span>
       </form>
       <a href="/auth/logout" id="logout">Logout</a>
