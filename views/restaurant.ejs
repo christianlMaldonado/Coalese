@@ -73,8 +73,12 @@
                <p class="card-text"><%= restaurants[i].review_count %> Reviews <br> <a href='<%=restaurants[i].url%>'><img class="yelp" src="/images/yelp/yelp.png"></a></p>
                
             </p>
-              <a href="#" class="btn btn-primary"><i class="fa fa-thumbs-up"></i></a>
-              <a href="#" class="btn btn-primary"><i class="fa fa-thumbs-down"></i></a>
+            <button
+            data-name="<%= restaurants.name %>"
+            data-address="<%= restaurants.location.address1 %> <%= restaurants.location.city %>, <%= restaurants.location.state %>, <%=
+            restaurants.location.zip_code %>"
+          > class="btn btn-primary"><a href="#"></a><i class="fa fa-thumbs-up"></i></button>
+              <button class="btn btn-primary"><a href="#"></a><i class="fa fa-thumbs-down"></i></button>
             </div>
           </div>
         <% } %>
