@@ -19,6 +19,7 @@ footer {
 
 .footerLink:hover {
   color: lightskyblue;
+  text-decoration: none;
 }
 
 .separate {
@@ -39,8 +40,8 @@ form-control:valid {
 
 /* home.ejs styles */
 #logout {
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  bottom: 1%;
 }
 
 #logout:hover {
@@ -80,6 +81,7 @@ form-control:valid {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 100px;
+  width: 30% !important;
 }
 
 /*register.ejs styles*/
@@ -107,6 +109,43 @@ form-control:valid {
   font-size: 25px;
 }
 
+/*restaurant page*/
+
+.card {
+  float: left;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+.card-img-top {
+  height: 200px;
+}
+
+.card-title {
+  font-size: 12px;
+}
+
+.card-text {
+  font-size: 10px;
+}
+
+.card-body {
+  background-color: rgb(240, 240, 240);
+}
+
+.srchContain {
+  max-width: 90% !important;
+  height: 80vh !important;
+}
+
+.yelp {
+  width: 30%;
+}
+
+.resBottom {
+  width: 100%;
+}
+
 /*media screen 550px*/
 @media screen and (max-width: 550px) {
   .imgReg {
@@ -124,6 +163,20 @@ form-control:valid {
 
   .regHead {
     padding-top: 0px;
+  }
+
+  .loginContainer {
+    width: 70% !important;
+  }
+
+  .srchContain {
+    max-width: 100% !important;
+    margin-left: 0;
+  }
+
+  .card {
+    width: 90% !important;
+    margin-left: 0;
   }
 }
 
@@ -151,5 +204,20 @@ form-control:valid {
 
   .regHead {
     color: white;
+  }
+
+  .loginContainer {
+    width: 60% !important;
+  }
+
+  .srchContain {
+    max-width: 90% !important;
+    height: 160vh !important;
+    margin-left: 5%;
+  }
+
+  .card {
+    width: 45% !important;
+    margin-left: 3%;
   }
 }
