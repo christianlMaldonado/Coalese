@@ -21,14 +21,75 @@
     </div>
     <div class="text-center">
       <h3>Restaurants</h3>
-    </br>
-      <form action="/yelp" method="post">
-        <div>
-          <label for="search">Find Restaurants Near You: </label>
-          <input type="text" name="search" id="search" />
-        </div>
-      </form>
-      <a href="/auth/logout" id="logout">Logout</a>
     </div>
+      <div class="container srchContain text-center">
+      <ul>
+        <% for(var i=0; i<restaurants.length; i++) {%>
+
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src='<%= restaurants[i].image_url%>' alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= restaurants[i].name %></h5>
+              <p class="card-text">
+              <% if(restaurants[i].is_closed = false){ %>
+                  <p class="card-text">Currently Open</p>
+                  <%} else{ %>
+                    <p class="card-text">Currently Closed <br> </p>
+              <%}%>
+              <% switch(restaurants[i].rating) {
+                case 0 : %>
+                <img src = "/images/yelp/stars/small_0.png">
+                <%break;
+                case 1 : %>
+                <img src = "/images/yelp/stars/small_1.png">
+                <%break;
+                case 1.5 : %>
+                <img src = "/images/yelp/stars/small_1_half.png">
+                <%break;
+                case 2 : %>
+                <img src = "/images/yelp/stars/small_2.png">
+                <%break;
+                case 2.5 : %>
+                <img src = "/images/yelp/stars/small_2_half.png">
+                <%break;
+                case 3 : %>
+                <img src = "/images/yelp/stars/small_3.png">
+                <%break;
+                case 3.5 : %>
+                <img src = "/images/yelp/stars/small_3_half.png">
+                <%break;
+                case 4 : %>
+                <img src = "/images/yelp/stars/small_4.png">
+                <%break;
+                case 4.5 : %>
+                <img src = "/images/yelp/stars/small_4_half.png">
+                <%break;
+                case 5 : %>
+                <img src = "/images/yelp/stars/small_5.png">
+                <%break;
+               } %>
+
+               <p class="card-text"><%= restaurants[i].review_count %> Reviews <br> <a href='<%=restaurants[i].url%>'><img class="yelp" src="/images/yelp/yelp.png"></a></p>
+               
+            </p>
+              <a href="#" class="btn btn-primary"><i class="fa fa-thumbs-up"></i></a>
+              <a href="#" class="btn btn-primary"><i class="fa fa-thumbs-down"></i></a>
+            </div>
+          </div>
+        <% } %>
+        </ul>
+        </div>
+
+
+    <div class="resBottom text-center">
+      
+      </div>
+
+      <footer>
+        <div class="container text-center">
+          <a class="footerLink" href="/home">Home - </a>
+          <a class="footerLink"href="/auth/logout">Logout</a>
+        </div>
+      </footer>
   </body>
 </html>
