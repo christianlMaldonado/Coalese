@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="/images/logo.png" type="image/gif" sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="jumbotron text-center home">
+      <img class="navImg" src="/images/white_logo_transparent_background.png" />
+    </div>
+    <div class="text-center">
+      <h3>Matches</h3>
+      <h4>click a user to see your matches</h4>
+      <br />
+      <div>
+        <% users.forEach(function(element){ %> <%- include("partials/usernames", {users:element}) %>
+        <% }); %>
+      </div>
+      <a href="/auth/logout" id="logout">Logout</a>
+    </div>
+  </body>
+  <script>
+    $(function() {
+      $(document).on("click", "button", function(event) {
+        var match = {
+          id: $(this).data("id"),
+          matchId: $(this).data("matchid"),
+          username: $(this).data("username"),
+        };
+        console.log(match);
+        $.ajax("/home/matches", { type: "POST", data: match }).then(function() {
+          console.log("check out your match");
+        });
+      });
+    });
+  </script>
+</html>

@@ -11,11 +11,11 @@ passport.serializeUser((user, done) => {
 // deserializeUser
 passport.deserializeUser((id, done) => {
   db.User.findOne({ where: { id: id } }).then(user => {
-    console.log("deserialized User", user);
     done(null, user);
   });
 });
 
+// strategy for a local user
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
     db.User.findOne({ where: { email: email } }, (err, user) => {
@@ -29,7 +29,6 @@ passport.use(
         return done(null, false, { message: "Incorrect password." });
       }
     }).then(user => {
-      console.log("local strategy running:", user);
       return done(null, user);
     });
   })
