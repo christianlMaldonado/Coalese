@@ -31,7 +31,7 @@ router.get("/", authCheck, (req, res) => {
     .search(searchRequest)
     .then(response => {
       const result = response.jsonBody.businesses;
-      console.log(JSON.stringify(result, null, 2));
+      //console.log(JSON.stringify(result, null, 2));
       res.render("restaurant", { restaurants: result, user: req.user });
     })
     .catch(e => {
