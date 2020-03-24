@@ -3,7 +3,7 @@
   <head>
     <link rel="icon" href="/images/logo.png" type="image/gif" sizes="16x16" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Restaurants</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -79,13 +79,19 @@
                <p class="card-text"><%= restaurants[i].review_count %> Reviews <br> <a href='<%=restaurants[i].url%>'><img class="yelp" src="/images/yelp/yelp.png"></a></p>
                
             </p>
-            <button class="likes"
+            <button class="likes btn btn-color"
             data-name="<%= restaurants[i].name %>"
             data-address="<%= restaurants[i].location.address1 %> <%= restaurants[i].location.city %>, <%= restaurants[i].location.state %>, <%=
             restaurants[i].location.zip_code %>"
             data-id="<%=user.dataValues.id%>"
             ><i class="fa fa-thumbs-up"></i></button>
-              <button class="btn btn-primary"><i class="fa fa-thumbs-down"></i></button>
+            <button class="dislikes btn btn-color"
+            data-name="<%= restaurants[i].name %>"
+            data-address="<%= restaurants[i].location.address1 %> <%= restaurants[i].location.city %>, <%= restaurants[i].location.state %>, <%=
+            restaurants[i].location.zip_code %>"
+            data-id="<%=user.dataValues.id%>"
+            ><i class="fa fa-thumbs-down"></i></button>
+              
             </div>
           </div>
         <% } %>
@@ -99,7 +105,7 @@
         </div>
       </footer>
 
-      <script>
+  <script>
 
     $(function() {
       $(document).on("click", ".likes", function(event) {
@@ -111,8 +117,24 @@
         $.ajax("/likes", { type: "POST", data: likes }).then(function() {
           console.log("added to likes");
         });
+        
       });
     });
+
+    $(function() {
+      $(document).on("click", ".dislikes", function(event) {
+        var dislikes = {
+          name: $(this).data("name"),
+          address: $(this).data("address"),
+          id: $(this).data("id"),
+        };
+        $.ajax("/likes", { type: "DELETE", data: dislikes }).then(function() {
+          console.log("added to likes");
+        });
+      });
+    });
+
+    
   </script>
 
 
