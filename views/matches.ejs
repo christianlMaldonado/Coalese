@@ -3,7 +3,7 @@
   <head>
     <link rel="icon" href="/images/logo.png" type="image/gif" sizes="16x16" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Matches</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -29,11 +29,17 @@
       <h4>click a user to see your matches</h4>
       <br />
       <div>
-        <% users.forEach(function(element){ %> <%- include("partials/users", {users:element}) %> <%
-        }); %>
+        <% users.forEach(function(element){ %> <%- include("partials/users",
+        {users:element}) %> <% }); %>
       </div>
-      <a href="/auth/logout" id="logout">Logout</a>
     </div>
+
+    <footer>
+      <div class="container text-center">
+        <a class="footerLink" href="/home">Home - </a>
+        <a class="footerLink" href="/auth/logout">Logout</a>
+      </div>
+    </footer>
   </body>
   <script>
     $(function() {
@@ -41,7 +47,7 @@
         var match = {
           id: $(this).data("id"),
           matchId: $(this).data("matchid"),
-          username: $(this).data("username"),
+          username: $(this).data("username")
         };
         console.log(match);
         $.ajax("/home/matches", { type: "POST", data: match }).then(function(response) {

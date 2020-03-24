@@ -24,14 +24,14 @@ router.get("/", authCheck, (req, res) => {
     term: "restaurants",
     location: firstResult,
     radius: 20000,
-    limit: 10,
+    limit: 10
   };
 
   client
     .search(searchRequest)
     .then(response => {
       const result = response.jsonBody.businesses;
-      console.log(JSON.stringify(result, null, 2));
+      //console.log(JSON.stringify(result, null, 2));
       res.render("restaurant", { restaurants: result, user: req.user });
     })
     .catch(e => {

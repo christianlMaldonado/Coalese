@@ -15,4 +15,23 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/", (req, res) => {
+  const name = req.body.name;
+  const address = req.body.address;
+  const id = req.body.id;
+  db.Like.destroy({
+    where: {
+      restaurant_name: name,
+      address: address,
+      UserId: id
+    }
+  })
+    .then(liked => {
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      console.log("Error: " + err);
+    });
+});
+
 module.exports = router;
