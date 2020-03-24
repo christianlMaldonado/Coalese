@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // middleware for using req.body from post forms
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // sets information for cookie for a day
