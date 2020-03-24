@@ -39,23 +39,20 @@ router.post("/matches", (req, res) => {
   db.Like.findAll({
     where: { [Op.or]: [{ UserId: req.body.id }, { UserId: req.body.matchId }] },
   }).then(likes => {
+    console.log(likes);
     let restaurants = [];
     for (let i = 0; i < likes.length; i++) {
       const element = likes[i].dataValues.restaurant_name;
       restaurants.push(element);
     }
-    console.log("--------------");
-    console.log(restaurants);
-    console.log("--------------");
+
     restaurants = restaurants.sort();
     for (let j = 0; j < restaurants.length; j++) {
       if (restaurants[j] === restaurants[j + 1]) {
         match = restaurants[j];
       }
     }
-    console.log("================");
-    console.log(match);
-    console.log("================");
+
     if (match) {
       const searchRequest = {
         term: match,
@@ -75,8 +72,7 @@ router.post("/matches", (req, res) => {
             rating: result[0].rating,
             display_phone: result[0].display_phone,
           };
-          console.log(restaurant);
-          // this statement throwing 302 error on browser maybe...
+
           res.json(restaurant);
         })
         .catch(e => {
