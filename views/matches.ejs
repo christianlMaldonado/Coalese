@@ -18,11 +18,6 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
@@ -49,8 +44,9 @@
           username: $(this).data("username"),
         };
         console.log(match);
-        $.ajax("/home/matches", { type: "POST", data: match }).then(function() {
+        $.ajax("/home/matches", { type: "POST", data: match }).then(function(response) {
           console.log("check out your match");
+          console.log(response);
         });
       });
     });
