@@ -10,13 +10,17 @@ router.post("/", (req, res) => {
     where: {
       restaurant_name: name,
       address: address,
+
       UserId: id
+
     },
     defaults: {
       restaurant_name: name,
       address: address,
+
       UserId: id
     }
+
   }).then(response => {
     console.log(response);
     res.sendStatus(204);

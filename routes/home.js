@@ -52,6 +52,7 @@ router.post("/matches", (req, res) => {
         match = restaurants[j];
       }
     }
+
     if (match) {
       const searchRequest = {
         term: match,
