@@ -39,6 +39,7 @@ router.post("/matches", (req, res) => {
   db.Like.findAll({
     where: { [Op.or]: [{ UserId: req.body.id }, { UserId: req.body.matchId }] }
   }).then(likes => {
+    console.log(likes);
     let restaurants = [];
     for (let i = 0; i < likes.length; i++) {
       const element = likes[i].dataValues.restaurant_name;
@@ -68,8 +69,7 @@ router.post("/matches", (req, res) => {
             image_url: result[0].image_url,
             url: result[0].url
           };
-          console.log(restaurant);
-          // this statement throwing 302 error on browser maybe...
+
           res.json(restaurant);
         })
         .catch(e => {

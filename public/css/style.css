@@ -127,6 +127,13 @@ form-control:valid {
 
 /*restaurant page*/
 
+.restaurant {
+  background-image: url("../images/top-view.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0px !important;
+}
+
 .card {
   float: left;
   margin-left: 30px;
@@ -177,6 +184,13 @@ form-control:valid {
 }
 
 /*matches.ejs*/
+
+.matchHeader {
+  background-image: url("../images/group.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0px !important;
+}
 
 .matchImg {
   width: 40%;
