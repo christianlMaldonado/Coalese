@@ -66,6 +66,11 @@ form-control:valid {
   font-family: "Allerta", sans-serif;
 }
 
+.matches {
+  color: black;
+  text-decoration: none;
+}
+
 /*login.ejs styles */
 
 .loginJumbo {
@@ -169,6 +174,18 @@ form-control:valid {
   background-color: rgb(245, 245, 245);
   width: 80%;
   margin-left: 10%;
+}
+
+/*matches.ejs*/
+
+.matchImg {
+  width: 40%;
+  margin-bottom: 100px;
+}
+
+.matchLink {
+  text-decoration: none;
+  color: black;
 }
 
 /*media screen 550px*/

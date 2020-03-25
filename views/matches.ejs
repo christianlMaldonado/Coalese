@@ -13,6 +13,10 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Allerta&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -25,14 +29,18 @@
       <img class="navImg" src="/images/white_logo_transparent_background.png" />
     </div>
     <div class="text-center">
-      <h3>Matches</h3>
-      <h4>click a user to see your matches</h4>
+      <h3>Matched Restaurant</h3>
+      <h5>Click on a user to see your match!</h5>
+
       <br />
       <div>
         <% users.forEach(function(element){ %> <%- include("partials/users",
         {users:element}) %> <% }); %>
       </div>
     </div>
+    <br />
+
+    <div class="text-center" id="here"></div>
 
     <footer>
       <div class="container text-center">
@@ -49,10 +57,27 @@
           matchId: $(this).data("matchid"),
           username: $(this).data("username")
         };
+        $("#here").empty();
+
         console.log(match);
-        $.ajax("/home/matches", { type: "POST", data: match }).then(function(response) {
+        $.ajax("/home/matches", { type: "POST", data: match }).then(function(
+          response
+        ) {
           console.log("check out your match");
           console.log(response);
+          $("#here").append(
+            '<a class="matchLink" href="' +
+              response.url +
+              '">' +
+              response.name +
+              " </a> <br>"
+          );
+          $("#here").append(
+            '<img class="matchImg" src="' +
+              response.image_url +
+              '">' +
+              '<i class="fas fa-external-link-alt"></i>'
+          );
         });
       });
     });

@@ -23,8 +23,7 @@ router.get("/", authCheck, (req, res) => {
   const searchRequest = {
     term: "restaurants",
     location: firstResult,
-    radius: 20000,
-    limit: 10
+    radius: 20000
   };
 
   client

@@ -129,7 +129,7 @@
           id: $(this).data("id"),
         };
         $.ajax("/likes", { type: "DELETE", data: dislikes }).then(function() {
-          console.log("added to likes");
+          console.log("removed to likes");
         });
       });
     });
