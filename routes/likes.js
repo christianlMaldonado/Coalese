@@ -6,7 +6,6 @@ router.post("/", (req, res) => {
   const name = req.body.name;
   const address = req.body.address;
   const id = req.body.id;
-
   db.Like.findOrCreate({
     where: {
       restaurant_name: name,
@@ -36,8 +35,8 @@ router.delete("/", (req, res) => {
     where: {
       restaurant_name: name,
       address: address,
-      UserId: id,
-    },
+      UserId: id
+    }
   })
     .then(liked => {
       res.sendStatus(200);
