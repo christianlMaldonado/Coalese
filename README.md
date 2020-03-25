@@ -1,4 +1,4 @@
-# ProjectTwo
+# <p align="center">ProjectTwo</p>
 
 Coalesce web page allows users to Register by providing Name, E-mail and password. Once registered users will be redirected to login page where users will be required to enter email and password then redirected to the front page where user can enter location once user clicks the search button Restaurant locations will appear where user will have the ability to like or dislike restaurants around his geographic chosen area.
 
@@ -8,9 +8,16 @@ Technology used in the project Passport.js, EJS, Json, Sequelize, Yelp for API a
 
 [Coalesce](https://arcane-woodland-29279.herokuapp.com/ "Heroku Deployed App")
 
+### Visuals
+
+<img src="./public/images/matches-ex.jpg">
+
+<img src="./public/images/register-ex.jpg">
+
 ## A project by
-### Christian
-### Matt
-### Noe
-### Niles
-### Omar
+
+**Christian**
+**Matt**
+**Noe**
+**Niles**
+**Omar**
