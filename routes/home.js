@@ -37,7 +37,7 @@ router.get("/matches", authCheck, (req, res) => {
 router.post("/matches", (req, res) => {
   console.log(req.body);
   db.Like.findAll({
-    where: { [Op.or]: [{ UserId: req.body.id }, { UserId: req.body.matchId }] },
+    where: { [Op.or]: [{ UserId: req.body.id }, { UserId: req.body.matchId }] }
   }).then(likes => {
     console.log(likes);
     let restaurants = [];
@@ -52,12 +52,12 @@ router.post("/matches", (req, res) => {
         match = restaurants[j];
       }
     }
-
+    
     if (match) {
       const searchRequest = {
         term: match,
         location: "benicia, ca",
-        limit: 1,
+        limit: 1
       };
 
       client
@@ -68,9 +68,7 @@ router.post("/matches", (req, res) => {
           const restaurant = {
             name: result[0].name,
             image_url: result[0].image_url,
-
-            rating: result[0].rating,
-            display_phone: result[0].display_phone,
+            url: result[0].url
           };
 
           res.json(restaurant);
