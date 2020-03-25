@@ -183,6 +183,11 @@ form-control:valid {
   margin-left: 10%;
 }
 
+.bodytext {
+  width: 80%;
+  margin-left: 10%;
+}
+
 /*matches.ejs*/
 
 .matchHeader {
