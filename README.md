@@ -10,9 +10,9 @@ Technology used in the project Passport.js, EJS, Json, Sequelize, Yelp for API a
 
 ### Visuals
 
-<img src="./public/images/matches-ex.jpg">
+<p align="center"><img src="./public/images/matches-ex.jpg"></p>
 
-<img src="./public/images/register-ex.jpg">
+<p align="center"><img src="./public/images/register-ex.jpg"></p>
 
 ## A project by
 
